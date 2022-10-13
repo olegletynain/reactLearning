@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 
 import Button from './components/Button';
-import Counter from './components/Counter'
+import Counter from './components/Counter';
+import SearchBar from './components/SearchBar';
+import View from './components/View';
 
 function App() {
   return (
@@ -10,24 +12,18 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          HW 1 Oleg Letianin.
         </p>
-        <div>
-          <p>Hello React</p>
-        </div>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <p>
+            Learn React - components
+          </p>
+          <View children={[<SearchBar Name="Search"/>]}></View>          
           <Counter text="0" Id="counter"></Counter>
-          <div className='.view'>
-            <Button sign="+" handler={UpdateCount}></Button>
+          <View children={[
+            <Button sign="+" handler={UpdateCount}></Button>,
             <Button sign="-" handler={UpdateCount}></Button>
-          </div>
+          ]}>
+          </View>
       </header>
     </div>
   );
