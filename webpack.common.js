@@ -11,11 +11,6 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
 After that apply all the rules in module.rules and produce the output and place it in main.js in the public folder.*/
 
 module.exports = {
-  /** "mode"
-   * the environment - development, production, none. tells webpack
-   * to use its built-in optimizations accordingly. default is production
-   */
-  mode: "development",
   /** "entry"
    * the entry point
    */
@@ -35,27 +30,6 @@ module.exports = {
    * for browser (client side). Default is "web"
    */
   target: "web",
-  devServer: {
-    /** "port"
-     * port of dev server
-     */
-    port: "9500",
-    /** "open"
-     * opens the browser after server is successfully started
-     */
-    open: true,
-    /** "hot"
-     * enabling and disabling HMR. takes "true", "false" and "only".
-     * "only" is used if enable Hot Module Replacement without page
-     * refresh as a fallback in case of build failures
-     */
-    hot: true,
-    /** "liveReload"
-     * disable live reload on the browser. "hot" must be set to false for this to work
-     */
-    liveReload: true,
-    //devtool: 'inline-source-map',
-  },
   resolve: {
     /** "extensions"
      * If multiple files share the same name but have different extensions, webpack will
