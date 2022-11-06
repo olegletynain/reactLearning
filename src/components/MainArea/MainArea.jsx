@@ -1,7 +1,8 @@
 import React from 'react';
 import styled, { css } from "styled-components";
 import Genres from './GenresTabs/Genres';
-import MovieCard from './MovieList/Movie/MovieCard';
+import MovieList from './MovieList/MovieList';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary'
 
 const MainAreaStyled = styled.section`
 background: black;
@@ -11,7 +12,6 @@ height: 100%;
 
 const GenresAreaStyled = styled.section`
     display: flex;
-
 `;
 
 function MainArea(props) {
@@ -21,9 +21,10 @@ function MainArea(props) {
             <GenresAreaStyled>
                 <Genres>
                 </Genres>
-            </GenresAreaStyled>   
-            <MovieCard></MovieCard>                                     
-            
+            </GenresAreaStyled>  
+            <ErrorBoundary>
+                <MovieList></MovieList>                                     
+            </ErrorBoundary> 
         </MainAreaStyled>            
         </>
     )

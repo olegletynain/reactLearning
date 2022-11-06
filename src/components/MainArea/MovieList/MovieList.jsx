@@ -1,52 +1,69 @@
 import React from 'react';
 import styled, { css } from "styled-components";
 import PropTypes from 'prop-types'
+import MovieCard from './Movie/MovieCard';
 
-const UlAsTabs = styled.ul`
-    display: flex;
-    list-style-type: none;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    
-    text-transform: uppercase;
-    
-    color: #FFFFFF;    
-`;
-
-const TabElement = styled.li`
-margin: 0 15px;
-cursor: pointer;
-
-.active {
-    background: pink;
-}
+const MovieListStyled = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 10px;
 `;
 
 
-function Genres(props) {
-    const elements= props.tabsList.map((item,i) => <TabElement key={i}>{item}</TabElement>)
+
+
+let movies = [
+    {
+        title: 'Star Wars: Episode IV - A New Hope',
+        productionYear: 1977,
+        imgUrl: 'https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_QL75_UX190_CR0,5,190,281_.jpg',
+        id: 1
+    },
+    {
+        title: 'Star Wars: Episode V - Empire Strikes Back',
+        productionYear: 1980,
+        imgUrl: 'https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX190_CR0,7,190,281_.jpg',
+        id: 2
+    },
+    {
+        title: 'Star Wars: Episode VI - Return of the Jedi',
+        productionYear: 1983,
+        imgUrl: 'https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_QL75_UX190_CR0,7,190,281_.jpg',
+        id: 3
+    },
+];
+
+function MovieList(props) {
+    const {imgUrl, name, ...otherProps} = props;
     return(
         <>
-            <UlAsTabs>
-                {elements}
-            </UlAsTabs>
+        <MovieListStyled>
+                {movies.map((movie) => (
+                            <MovieCard name={movie.title}
+                                    imgUrl={movie.imgUrl}
+                                    productionYear={movie.productionYear}
+                                    key={movie.id}
+                        ></MovieCard>
+                ))}
+        </MovieListStyled>
         </>
     )
 }
 
-Genres.propTypes = {
-    tabsList: PropTypes.arrayOf(PropTypes.string),
-    defaultTab: PropTypes.number
+MovieList.propTypes = {
+    imgUrl: PropTypes.string,
+    name: PropTypes.string,    
+    genres: PropTypes.arrayOf(PropTypes.string),
+    productionYear: PropTypes.number
   };
 
   
-  Genres.defaultProps = {
-    tabsList: ["all" ,"action", "comedy", "sci-fi"],
-    defaultTab: 0
+  MovieList.defaultProps = {
+    imgUrl: 'https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX190_CR0,7,190,281_.jpg',
+    name: "Star Wars: Empire Strikes Back",
+    genres: ['action', 'sci-fi'],
+    productionYear: 1980
 }
 
 
-export default Genres
+export default MovieList

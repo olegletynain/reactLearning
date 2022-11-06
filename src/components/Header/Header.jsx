@@ -18,7 +18,7 @@ function Header(props) {
     return(
         <>
             <StyledHeader>
-                <HeaderIcon></HeaderIcon>
+                <HeaderIcon name='netflixroullet'></HeaderIcon>
                 <AddMovie></AddMovie>
                 <SearchBar></SearchBar>
             </StyledHeader>
