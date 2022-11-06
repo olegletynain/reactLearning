@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const FooterBox = styled.div`
     background: #424242;
-    height: 50px;    
+    height: 30px;    
     margin-top: 1rem;
     padding: 1rem;
     position: fixed;
@@ -16,14 +16,14 @@ const FooterBox = styled.div`
 const StyledH1 = styled.h1`
     position: absolute;
     width: 151px;
-    height: 24px;
+    height: 15px;
     left: 118px;
-    top: 20px;
+    top: 5px;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 900;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 15px;
     color: #F65261;
 `;
    

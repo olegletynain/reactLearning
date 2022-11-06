@@ -46,9 +46,6 @@ const GenresBox = styled.div`
 `;
 
 
-
-//flex-basis: 100%
-
 function InfoSection(props) {
     const genresElements= props.genres.map((item,i) => item + " ")
     return(
@@ -71,11 +68,11 @@ InfoSection.propTypes = {
   };
 
   
-//   InfoSection.defaultProps = {
-//     genres: ['action', 'sci-fi'],
-//     productionYear: 1980,
-//     name: 'Star Wars: Empire Strikes Back'
-// }
+  InfoSection.defaultProps = {
+    genres: ['action', 'sci-fi'],
+    productionYear: 1980,
+    name: 'Star Wars: Empire Strikes Back'
+ }
 
 
 export default InfoSection
