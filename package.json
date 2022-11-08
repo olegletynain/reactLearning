@@ -51,6 +51,7 @@
 		"prebuild": "rimraf build",
 		"build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
 		"test": "test",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"lint": "eslint --fix --ext .js,.jsx ."
 	}
 }

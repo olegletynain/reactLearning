@@ -1,6 +1,6 @@
 import React from 'react';
-import styled, { css } from "styled-components";
-import PropTypes from 'prop-types'
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledButton = styled.button`
     background: rgba(96, 96, 96, 0.68);
@@ -21,20 +21,18 @@ const StyledButton = styled.button`
 `;
 
 function AddMovie(props) {
-    return(
-        <>
-            <StyledButton>{props.name}</StyledButton>
-        </>
-    )
+  const { name } = props;
+  return (
+    <StyledButton>{name}</StyledButton>
+  );
 }
 
 AddMovie.propTypes = {
-    name: PropTypes.string
-  };
+  name: PropTypes.string,
+};
 
-  
-  AddMovie.defaultProps = {
-    name: '+ Add Movie'
-}
+AddMovie.defaultProps = {
+  name: '+ Add Movie',
+};
 
-export default AddMovie
+export default AddMovie;

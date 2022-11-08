@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from "styled-components";
+import styled from 'styled-components';
 
 const StyledMessage = styled.h1`
     font-family: 'Montserrat';
@@ -12,20 +12,20 @@ const StyledMessage = styled.h1`
 `;
 
 function ErrorBoundary(props) {
-    const ErrorMessage = () => (
-        <StyledMessage>Error in loading</StyledMessage>
-    );
+  const { ...children } = props.children;
+  function ErrorMessage() {
+    return <StyledMessage>Error in loading</StyledMessage>;
+  }
 
-    let isLoaded = true;
+  const isLoaded = true;
 
-    return(
-        <>
-        {
-            isLoaded ? props.children : <ErrorMessage/>
+  return (
+    <>
+      {
+            isLoaded ? children : <ErrorMessage />
         }
-        </>
-    )
+    </>
+  );
 }
 
-
-export default ErrorBoundary
+export default ErrorBoundary;

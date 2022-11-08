@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const FooterBox = styled.div`
     background: #424242;
@@ -13,7 +13,7 @@ const FooterBox = styled.div`
     width: 100%;    
 `;
 
-const StyledH1 = styled.h1`
+const StyledFooterLabel = styled.h1`
     position: absolute;
     width: 151px;
     height: 15px;
@@ -26,7 +26,7 @@ const StyledH1 = styled.h1`
     line-height: 15px;
     color: #F65261;
 `;
-   
+
 export const Heading = styled.p`
   font-size: 24px;
   color: #fff;
@@ -35,23 +35,22 @@ export const Heading = styled.p`
 `;
 
 function Footer(props) {
-    return (
-      <FooterBox>
-        <StyledH1>
-          {props.name}
-        </StyledH1>
-      </FooterBox>
-    );
-  };
-
-
-  Footer.propTypes = {
-    name: PropTypes.string
-  };
-
-  
-  Footer.defaultProps = {
-    name: 'netflixroullet'
+  const { name } = props;
+  return (
+    <FooterBox>
+      <StyledFooterLabel>
+        {name}
+      </StyledFooterLabel>
+    </FooterBox>
+  );
 }
 
-  export default Footer;
+Footer.propTypes = {
+  name: PropTypes.string,
+};
+
+Footer.defaultProps = {
+  name: 'netflixroullet',
+};
+
+export default Footer;

@@ -1,6 +1,6 @@
 import React from 'react';
-import styled, { css } from "styled-components";
-import PropTypes from 'prop-types'
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledIcon = styled.h1`
     position: absolute;
@@ -17,20 +17,18 @@ const StyledIcon = styled.h1`
 `;
 
 function HeaderIcon(props) {
-    return(
-        <>
-            <StyledIcon>{props.name}</StyledIcon>
-        </>
-    )
+  const { name } = props;
+  return (
+    <StyledIcon>{name}</StyledIcon>
+  );
 }
 
 HeaderIcon.propTypes = {
-    name: PropTypes.string
-  };
+  name: PropTypes.string,
+};
 
-  
-  HeaderIcon.defaultProps = {
-    name: 'netflixroullet'
-}
+HeaderIcon.defaultProps = {
+  name: 'netflixroullet',
+};
 
-export default HeaderIcon
+export default HeaderIcon;

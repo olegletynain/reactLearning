@@ -1,6 +1,5 @@
 import React from 'react';
-import styled, { css } from "styled-components";
-import PropTypes from 'prop-types'
+import styled from 'styled-components';
 
 const UlAsTabs = styled.ul`
     display: flex;
@@ -25,28 +24,33 @@ cursor: pointer;
 }
 `;
 
+const tabs = [
+  {
+    title: 'all',
+    id: 1,
+  },
+  {
+    title: 'action',
+    id: 2,
+  },
+  {
+    title: 'comedy',
+    id: 3,
+  },
+  {
+    title: 'sci-fi',
+    id: 4,
+  },
+];
 
-function Genres(props) {
-    const elements= props.tabsList.map((item,i) => <TabElement key={i}>{item}</TabElement>)
-    return(
-        <>
-            <UlAsTabs>
-                {elements}
-            </UlAsTabs>
-        </>
-    )
+function Genres() {
+  const { tabsList } = tabs;
+  const elements = tabsList.map((item) => <TabElement key={item.id}>{item.title}</TabElement>);
+  return (
+    <UlAsTabs>
+      {elements}
+    </UlAsTabs>
+  );
 }
 
-Genres.propTypes = {
-    tabsList: PropTypes.arrayOf(PropTypes.string),
-    defaultTab: PropTypes.number
-  };
-
-  
-  Genres.defaultProps = {
-    tabsList: ["all" ,"action", "comedy", "sci-fi"],
-    defaultTab: 0
-}
-
-
-export default Genres
+export default Genres;

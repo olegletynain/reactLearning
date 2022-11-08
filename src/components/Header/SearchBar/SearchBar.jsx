@@ -1,6 +1,6 @@
-import React from 'react'
-import styled, { css } from "styled-components";
-import PropTypes from 'prop-types'
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const SearchInput = styled.input`
     width: 200%;
@@ -41,29 +41,27 @@ const WrapDiv = styled.div`
     top: 50%;
     left: 30%;
 `;
-       
 
-function SearchBar(props){
-    return(
+function SearchBar(props) {
+  const { buttonSearchName, searchPlaceHolder } = props;
+  return (
     <WrapDiv>
-            <SearchDiv>
-                <SearchInput type="search" id="mySearch" placeholder={props.searchPlaceHolder}/>
-                <SearchButton className="searchButton">{props.buttonSearchName}</SearchButton>
-            </SearchDiv>
+      <SearchDiv>
+        <SearchInput type="search" id="mySearch" placeholder={searchPlaceHolder} />
+        <SearchButton className="searchButton">{buttonSearchName}</SearchButton>
+      </SearchDiv>
     </WrapDiv>
-    )
+  );
 }
 
 SearchBar.propTypes = {
-    buttonSearchName: PropTypes.string,
-    searchPlaceHolder: PropTypes.string
-  };
+  buttonSearchName: PropTypes.string,
+  searchPlaceHolder: PropTypes.string,
+};
 
-  
-  SearchBar.defaultProps = {
-    buttonSearchName: 'Search',
-    searchPlaceHolder: 'What do you want to watch?'
-}
+SearchBar.defaultProps = {
+  buttonSearchName: 'Search',
+  searchPlaceHolder: 'What do you want to watch?',
+};
 
-
-export default SearchBar
+export default SearchBar;

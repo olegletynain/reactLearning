@@ -1,6 +1,6 @@
 import React from 'react';
-import styled, { css } from "styled-components";
-import PropTypes from 'prop-types'
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const InfoSectionStyled = styled.div`
     display: flex;
@@ -45,34 +45,29 @@ const GenresBox = styled.div`
     opacity: 0.5;
 `;
 
-
 function InfoSection(props) {
-    const genresElements= props.genres.map((item,i) => item + " ")
-    return(
-        <>
-            <InfoSectionStyled>
-                <Header>{props.name}</Header>
-                <YearBox>{props.productionYear}</YearBox>
-                <Break></Break>
-                <GenresBox>{genresElements}</GenresBox>
-            </InfoSectionStyled>
-            
-        </>
-    )
+  const { genres, productionYear, name } = props;
+  const genresElements = genres.map((item) => `${item} `);
+  return (
+    <InfoSectionStyled>
+      <Header>{name}</Header>
+      <YearBox>{productionYear}</YearBox>
+      <Break />
+      <GenresBox>{genresElements}</GenresBox>
+    </InfoSectionStyled>
+  );
 }
 
 InfoSection.propTypes = {
-    genres: PropTypes.arrayOf(PropTypes.string),
-    productionYear: PropTypes.number,
-    name: PropTypes.string
-  };
+  genres: PropTypes.arrayOf(PropTypes.string),
+  productionYear: PropTypes.number,
+  name: PropTypes.string,
+};
 
-  
-  InfoSection.defaultProps = {
-    genres: ['action', 'sci-fi'],
-    productionYear: 1980,
-    name: 'Star Wars: Empire Strikes Back'
- }
+InfoSection.defaultProps = {
+  genres: ['action', 'sci-fi'],
+  productionYear: 1980,
+  name: 'Star Wars: Empire Strikes Back',
+};
 
-
-export default InfoSection
+export default InfoSection;

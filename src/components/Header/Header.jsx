@@ -1,9 +1,9 @@
 import React from 'react';
-import styled, { css } from "styled-components";
+import styled from 'styled-components';
 import AddMovie from './AddMovie/AddMovie';
 import HeaderIcon from './HeaderIcon/HeaderIcon';
 import img from './img/backgroud.png';
-import SearchBar from './SearchBar/SearchBar'
+import SearchBar from './SearchBar/SearchBar';
 
 const StyledHeader = styled.section`
     display: flex;
@@ -14,16 +14,14 @@ const StyledHeader = styled.section`
     height: 396px;
 `;
 
-function Header(props) {
-    return(
-        <>
-            <StyledHeader>
-                <HeaderIcon name='netflixroullet'></HeaderIcon>
-                <AddMovie></AddMovie>
-                <SearchBar></SearchBar>
-            </StyledHeader>
-        </>
-    )
+function Header() {
+  return (
+    <StyledHeader>
+      <HeaderIcon name="netflixroullet" />
+      <AddMovie />
+      <SearchBar />
+    </StyledHeader>
+  );
 }
 
-export default Header
+export default Header;
