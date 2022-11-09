@@ -1,10 +1,15 @@
 import React from 'react';
+import Header from './components/Header/Header';
+import MainArea from './components/MainArea/MainArea';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <h1>
-      Welcome to React App thats build using Webpack and Babel separately
-    </h1>
+    <>
+      <Header />
+      <MainArea />
+      <Footer />
+    </>
   );
 }
 
