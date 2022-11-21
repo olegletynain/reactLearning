@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MovieCard from './Movie/MovieCard';
+import PropTypes from 'prop-types';
 
 const MovieListStyled = styled.div`
     display: grid;
@@ -32,19 +33,42 @@ const movies = [
   },
 ];
 
-function MovieList() {
+function MovieList(props) {
+  const {
+    movieList, editHandler, removeHandler
+  } = props;
+
   return (
     <MovieListStyled>
-      {movies.map((movie) => (
+      {movieList.map((movie) => (
         <MovieCard
           name={movie.title}
           imgUrl={movie.imgUrl}
           productionYear={movie.productionYear}
+          id={movie.id.toString()}
           key={movie.id}
+          editHandler={editHandler}
+          removeHandler={removeHandler}
         />
       ))}
     </MovieListStyled>
   );
 }
+
+MovieList.propTypes = {
+  movieList: PropTypes.array,
+  editHandler: PropTypes.func,
+  removeHandler: PropTypes.func,
+};
+
+MovieList.defaultProps = {
+  movieList: [],
+  editHandler: () => {
+    console.log('called editHandler for a defaultProps');
+  },
+  removeHandler: () => {
+    console.log('called removeHandler for a defaultProps');
+  },
+};
 
 export default MovieList;

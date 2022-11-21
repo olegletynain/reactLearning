@@ -2,21 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import InfoSection from './InfoSection';
+import DropDownMovieButton from './Buttons/DropDownMovieButton';
 
 const MovieCardStyled = styled.div`
     width: min-content;
     height: min-content;
     margin: 15px 15px 15px 15px;    
     overflow: hidden;
+    position: relative
 `;
 
 function MovieCard(props) {
   const {
-    imgUrl, name, productionYear, genres,
+    imgUrl, name, productionYear, genres, id, editHandler, removeHandler,
   } = props;
   return (
     <MovieCardStyled>
       <img src={imgUrl} alt={name} />
+      <DropDownMovieButton
+        menuText="..."
+        id={id}
+        editHandler={editHandler}
+        removeHandler={removeHandler}
+      />
       <InfoSection genres={genres} productionYear={productionYear} name={name} />
     </MovieCardStyled>
   );
@@ -27,6 +35,9 @@ MovieCard.propTypes = {
   name: PropTypes.string,
   genres: PropTypes.arrayOf(PropTypes.string),
   productionYear: PropTypes.number,
+  id: PropTypes.string,
+  editHandler: PropTypes.func,
+  removeHandler: PropTypes.func,
 };
 
 MovieCard.defaultProps = {
@@ -34,6 +45,13 @@ MovieCard.defaultProps = {
   name: 'Star Wars: Empire Strikes Back',
   genres: ['action', 'sci-fi'],
   productionYear: 1980,
+  id: 'dummyId',
+  editHandler: () => {
+    console.log('called editHandler for a defaultProps');
+  },
+  removeHandler: () => {
+    console.log('called removeHandler for a defaultProps');
+  },
 };
 
 export default MovieCard;

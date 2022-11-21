@@ -16,7 +16,7 @@
     "plugins": [
         "react"
     ],
-    "ignorePatterns": ["webpack.common.js", "webpack.dev.js", "webpack.prod.js", "**/vendor/*.js"],
+    "ignorePatterns": ["webpack.common.js", "webpack.dev.js", "webpack.prod.js", "**/node_modules/*", "node_modules/", "**/vendor/*.js", "index.jsx"],
     "rules": {
     }
 }

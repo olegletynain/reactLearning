@@ -44,8 +44,7 @@ const tabs = [
 ];
 
 function Genres() {
-  const { tabsList } = tabs;
-  const elements = tabsList.map((item) => <TabElement key={item.id}>{item.title}</TabElement>);
+  const elements = tabs.map((item) => <TabElement key={item.id}>{item.title}</TabElement>);
   return (
     <UlAsTabs>
       {elements}

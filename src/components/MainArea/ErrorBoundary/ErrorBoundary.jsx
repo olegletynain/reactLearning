@@ -11,14 +11,13 @@ const StyledMessage = styled.h1`
     color: white;
 `;
 
+function ErrorMessage() {
+  return <StyledMessage>Error in loading</StyledMessage>;
+}
+
 function ErrorBoundary(props) {
   const { ...children } = props.children;
-  function ErrorMessage() {
-    return <StyledMessage>Error in loading</StyledMessage>;
-  }
-
   const isLoaded = true;
-
   return (
     <>
       {
