@@ -14,9 +14,17 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "prettier"
     ],
-    "ignorePatterns": ["webpack.common.js", "webpack.dev.js", "webpack.prod.js", "**/node_modules/*", "node_modules/", "**/vendor/*.js", "index.jsx"],
+    "ignorePatterns": ["webpack.common.js", "webpack.dev.js", "webpack.prod.js", "**/node_modules/*", "node_modules/", "**/vendor/*.js", "index.jsx", ".vscode/*",
+    "dist/*",
+    "assets/*",
+    "node_modules/*",
+    "**/index.html",
+    "*/index.html",
+    "**/index.*.html",
+    "**/assets/*.html"],
     "rules": {
     }
 }

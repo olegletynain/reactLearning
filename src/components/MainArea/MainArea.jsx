@@ -24,37 +24,39 @@ class MainArea extends React.Component {
           productionYear: 1977,
           imgUrl: 'https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_QL75_UX190_CR0,5,190,281_.jpg',
           genres: ['action', 'sci-fi'],
-          id: 1,
+          id: '1',
         },
         {
           title: 'Star Wars: Episode V - Empire Strikes Back',
           productionYear: 1980,
           imgUrl: 'https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX190_CR0,7,190,281_.jpg',
           genres: ['action', 'sci-fi'],
-          id: 2,
+          id: '2',
         },
         {
           title: 'Star Wars: Episode VI - Return of the Jedi',
           productionYear: 1983,
           imgUrl: 'https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_QL75_UX190_CR0,7,190,281_.jpg',
           genres: ['action', 'sci-fi'],
-          id: 3,
+          id: '3',
         },
       ],
-    };    
-    
+    };
   }
 
-  editMovie(id) {
-    console.log("test");
+  editMovie = (id) => {
+    console.log('test');
     console.log(id);
-  }
+  };
 
-  removeMovie(id) {
-    console.log("test");
-    console.log(id);    
-  }
-
+  removeMovie = (id) => {
+    const [moviesVar] = [this.state.movies];
+    const indexOfObject = moviesVar.findIndex((object) => object.id === id);
+    if (indexOfObject > 0) {
+      moviesVar.splice(indexOfObject, 1);
+    }
+    this.setState(() => ({ movies: moviesVar }));
+  };
 
   render() {
     return (
@@ -65,10 +67,11 @@ class MainArea extends React.Component {
           </ErrorBoundary>
         </GenresAreaStyled>
         <ErrorBoundary>
-          <MovieList 
-            movieList={this.state.movies} 
-            editHandler = {this.editMovie}
-            removeHandler = {this.removeMovie}/>
+          <MovieList
+            movieList={this.state.movies}
+            editHandler={this.editMovie}
+            removeHandler={this.removeMovie}
+          />
         </ErrorBoundary>
       </MainAreaStyled>
     );

@@ -31,13 +31,17 @@ const MenuButtonStyled = styled.button`
   display:block;
   height: 25px;
   width: 25px;  
-  z-index: 999;
+  z-index: 2;
 `;
 
 const ItemButtonStyled = styled.button`
   display:inline-block;
   background-color: #232323;
   color: white;
+  font-family: 'Montserrat';
+  font-style: normal;
+  text-align: right;
+  text-transform: uppercase;
 
   :hover {
     background-color: #F65261;
@@ -48,9 +52,8 @@ const ItemButtonStyled = styled.button`
 function DropDownMovieButton(props) {
   const {
     menuText,
-    id,
-    editHandler,
-    removeHandler,
+    editWindowShowHandler,
+    removeWindowShowHandler,
   } = props;
 
   const [open, setOpen] = React.useState(false);
@@ -61,12 +64,12 @@ function DropDownMovieButton(props) {
 
   const handleEdit = () => {
     handleOpen();
-    editHandler(id);
+    editWindowShowHandler();
   };
 
   const handleRemove = () => {
     handleOpen();
-    removeHandler(id);
+    removeWindowShowHandler();
   };
 
   return (
@@ -84,18 +87,16 @@ function DropDownMovieButton(props) {
 
 DropDownMovieButton.propTypes = {
   menuText: PropTypes.string,
-  id: PropTypes.string,
-  editHandler: PropTypes.func,
-  removeHandler: PropTypes.func,
+  editWindowShowHandler: PropTypes.func,
+  removeWindowShowHandler: PropTypes.func,
 };
 
 DropDownMovieButton.defaultProps = {
   menuText: '...',
-  id: 'dummyId',
-  editHandler: () => {
+  editWindowShowHandler: () => {
     console.log('called editHandler for a defaultProps');
   },
-  removeHandler: () => {
+  removeWindowShowHandler: () => {
     console.log('called removeHandler for a defaultProps');
   },
 };
